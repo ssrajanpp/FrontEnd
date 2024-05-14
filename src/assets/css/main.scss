@@ -1,0 +1,251 @@
+
+$color-white: #fff;
+$color-ash: #585555;
+$color-menu: rgba(138, 136, 136, 0.5);
+$color-slider: rgb(239 237 237 / 75%);
+$color-slider-hover: rgba(218, 214, 214, 0.75);
+
+:root {
+  --color-ash:#d4cece;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .fp-watermark {
+    display: none;
+  }
+  .fd-site-logo {
+    border: solid 1px var(--color-ash);
+    border-radius: 5px;
+    margin: 10px;
+    width: 115px;
+  }
+  .fd-menu {
+    background-color: $color-menu;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .fd-suumenu {
+    color: $color-white;
+    font-size: 12px;
+    margin-right: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  #fp-nav.fp-right {
+    top: 13%;
+  }
+  .section {
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+    text-align: center;
+    
+    &::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 0;
+    }
+    .fd-section-inner {
+      position: relative;
+      z-index: 999;
+      .fd-heading {
+        font-size: 35px;
+        color: $color-ash;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      .fd-message {
+        font-size: 17px;
+        color: $color-ash;
+        margin-bottom: 5px;
+        &~.fd-message{
+          margin-top: 5px;
+        }
+      }
+    }
+    &.fd-section-index {
+          z-index: 99;
+          height: 100vh;
+          &::after {
+            content: '';
+            background-color: rgb(233 231 231 / 55%);
+          }
+          .fd-arrow-down {
+            position: absolute;
+            bottom: 20px;
+            z-index: 9999;
+            margin-left: -30px;
+            animation: arrowDown 1s ease-in-out alternate .9s infinite;
+            svg {
+              height: 50px;
+              width: 50px;
+              color: $color-ash;
+              &:hover {
+                color: #000;
+              }
+            }
+          }
+            
+        .indexVideo { 
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          min-width: 100%;
+          min-height: 100%;
+          width: 100%;
+          height: 100%;
+          z-index: -100;
+          transform: translateX(-50%) translateY(-50%);
+          background-repeat: no-repeat;
+          background-size: cover;
+          transition: 1s opacity;
+          object-fit: cover;
+          }
+          .fd-section-inner {
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
+          }
+    }
+    &.fd-section-slider {
+        background-image: url('../img/world-background.jpg');
+        height: 100vh;
+        &::after {
+          content: '';
+          background-color: rgb(255 255 255 / 20%);
+        }
+        .fd-section-inner {
+          margin-left: auto;
+          margin-right: auto;
+          width: 90%;
+        }
+        .fp-overflow {
+          overflow: hidden;
+        }
+          .fd-heading {
+           color: $color-white
+          }
+           .slick-slider {
+             z-index: 99;
+             margin: auto;
+             width: 70%;
+             text-align: left;
+             .slick-slide {
+               div {
+                 margin: 5px;
+               }
+               .fd-slider-box {
+                 border-top-left-radius: 15px;
+                 border-bottom-right-radius: 15px;
+                 background-color: $color-slider;
+                 min-height: 165px;
+                 &:hover {
+                   cursor: pointer;
+                   background-color: $color-slider-hover;
+                 }
+                 .fd-slick-inner {
+                   .fd-heading {
+                     font-size: 1.5em;
+                     color: $color-ash;
+                     font-weight: 700;
+                     margin: 15px 0 10px 10px;
+                     text-transform: lowercase;
+                   }
+                   .fd-message{
+                     margin: 0 0 20px 10px;
+                     color: $color-ash;
+                     line-height: 22px;
+                   }
+                 }
+               }
+             }
+             .slick-arrow {
+               &::before {
+                 display: none;
+               }
+               &:hover {
+                 color:#7d7979;
+               }
+              }
+             .slick-prev{
+               color: rgb(146, 146, 146);
+               width: 32px;
+               height: 40px;
+             }
+             .slick-next {
+               right: -40px;
+               color: $color-white;
+               width: 32px;
+               height: 40px;
+             }
+           } 
+    }
+  }
+
+  #fp-nav.fp-right {
+    ul {
+        li {
+            a {
+                background: #7d7979;
+                width: 20px;
+                height: 5px;
+                span {
+                    background: transparent;
+                }
+                &.active {
+                    width: 35px;
+                    height: 8px;
+                    background: #494646;
+                }
+            }
+        }
+    }
+  }
+
+  @keyframes arrowDown {
+    100% { transform: scale(1.2); }
+  }
+
+  // Desktop / Larger screen media styling
+
+  @media only screen and (min-width: 922px) {
+    .section.fd-section-slider {
+      .fd-section-inner {
+        margin-left: auto;
+        margin-right: 0;
+        width: 88%;
+      }
+      .slick-slider {
+        width: 65%;
+      }
+    }
+    #fp-nav.fp-right {
+      top: 50%;
+    }
+  }
+
+  @media only screen and (min-width: 1360px) {
+    .section.fd-section-slider {
+      .slick-slider {
+        width: 55%;
+      }
+    }
+  }
+
+
+  
+   
